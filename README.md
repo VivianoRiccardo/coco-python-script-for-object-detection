@@ -1,4 +1,4 @@
-# COCO-python-script-for-object-detection
+# COCO-python-script-for-object-detection-data
 
 - Download this repo https://github.com/cocodataset/cocoapi
 - Install the dependencies with the Makefile in the PythonApi folder
