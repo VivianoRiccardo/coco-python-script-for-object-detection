@@ -1,7 +1,7 @@
 # COCO-python-script-for-object-detection
 
 - Download this repo https://github.com/cocodataset/cocoapi
-- Install the dependencies with the Makefile in PythonApi folder
+- Install the dependencies with the Makefile in the PythonApi folder
 - Download the train/val annotations of 2017 images here
 http://images.cocodataset.org/annotations/annotations_trainval2017.zip
 - move the annotation folder you downloaded in the cocoapi repo directory
