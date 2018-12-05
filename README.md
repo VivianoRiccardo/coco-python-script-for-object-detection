@@ -2,7 +2,8 @@
 
 - Download this repo https://github.com/cocodataset/cocoapi
 - Install the dependencies with the Makefile in PythonApi folder
-- Download the train/val annotations of 2017 images here http://images.cocodataset.org/annotations/annotations_trainval2017.zip
+- Download the train/val annotations of 2017 images here
+http://images.cocodataset.org/annotations/annotations_trainval2017.zip
 - move the annotation folder you downloaded in the cocoapi repo directory
 - move the file create_data.py of this repo in PythonApi folder
 - create a directory 'data' in the PythonApi folder
