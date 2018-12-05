@@ -19,4 +19,4 @@ of the object and category_object is a number identifying the object. The catego
 https://github.com/nightrome/cocostuff/blob/master/labels.txt
 
 So, for instance if we have an image with 3 objects we have:
-640x640x2 values separated with commas and then   ...,x1,y1,h1,w1,id1,x2,y2,h2,w2,id2,x3,y3,h3,w3,id3,
+640x640x3 values separated with commas and then   ...,x1,y1,h1,w1,id1,x2,y2,h2,w2,id2,x3,y3,h3,w3,id3,
