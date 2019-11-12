@@ -6,6 +6,7 @@ import pylab
 from PIL import Image
 from threading import Thread
 import time
+from pathlib import Path
 
 class IlMioThread (Thread):
 	def __init__(self, lista,d,coco,num):
@@ -68,45 +69,47 @@ class IlMioThread (Thread):
 			count1 = 0
 			if(type(pix_val[0]) != int):
 				#print(i)
-				f = open("./data/"+str(i)+".txt","w")
-				r_c += 1
-				for j in range(0,640):
-					for k in range(0,640):
-						if(j < k11 or j >= k11+h or k < k21 or k >= k21+w):
-							number_list.append(0)
-						else:
-							 #print(pix_val[count1])
-							number_list.append(pix_val[count1][0])
-							count1+=1
+				my_file = Path("./data/"+str(i)+".txt")
+                        	if not my_file.is_file():
+					f = open("./data/"+str(i)+".txt","w")
+					r_c += 1
+					for j in range(0,640):
+						for k in range(0,640):
+							if(j < k11 or j >= k11+h or k < k21 or k >= k21+w):
+								number_list.append(0)
+							else:
+								 #print(pix_val[count1])
+								number_list.append(pix_val[count1][0])
+								count1+=1
 
-				count1 = 0
-				for j in range(0,640):
-					for k in range(0,640):
-						if(j < k11 or j >= k11+h or k < k21 or k >= k21+w):
-							number_list.append(0)
-						else:
-							number_list.append(pix_val[count1][1])
-							count1+=1
-				count1 = 0
-				for j in range(0,640):
-					for k in range(0,640):
-						if(j < k11 or j >= k11+h or k < k21 or k >= k21+w):
-							number_list.append(0)
-						else:
-							number_list.append(pix_val[count1][2])
-							count1+=1
-				
+					count1 = 0
+					for j in range(0,640):
+						for k in range(0,640):
+							if(j < k11 or j >= k11+h or k < k21 or k >= k21+w):
+								number_list.append(0)
+							else:
+								number_list.append(pix_val[count1][1])
+								count1+=1
+					count1 = 0
+					for j in range(0,640):
+						for k in range(0,640):
+							if(j < k11 or j >= k11+h or k < k21 or k >= k21+w):
+								number_list.append(0)
+							else:
+								number_list.append(pix_val[count1][2])
+								count1+=1
 
-				for j in range(0,len(number_list)):
-					f.write((str(number_list[j]))+',')
-				
-				for j in range(0,len(d[i])):
-					if(j%2==0):
-						for k in range(0,len(self.d[i][j])):
-							f.write(str(self.d[i][j][k])+',')
-					else:
-						f.write((str(self.d[i][j])+','))
-				f.close()
+
+					for j in range(0,len(number_list)):
+						f.write((str(number_list[j]))+',')
+
+					for j in range(0,len(d[i])):
+						if(j%2==0):
+							for k in range(0,len(self.d[i][j])):
+								f.write(str(self.d[i][j][k])+',')
+						else:
+							f.write((str(self.d[i][j])+','))
+					f.close()
 
 pylab.rcParams['figure.figsize'] = (8.0, 10.0)
 dataDir='..'
@@ -126,6 +129,7 @@ for i in coco.anns:
 		d[coco.loadAnns([i])[0]['image_id']].append(coco.loadAnns([i])[0]['category_id'])
 
 lista = d.keys()
+lista.sort()
 
 l1 = []
 l2 = []
